@@ -11,12 +11,12 @@ export class VideoListComponent implements OnInit {
   constructor() { }
 
   @Input() videoList: Video[];
-  selectedVideo: Video;
+  selectedId: string;
 
   ngOnInit(): void {
   }
 
   videoSelected(video: Video): void {
-    this.selectedVideo = video;
+    this.selectedId = video.id;
   }
 }
