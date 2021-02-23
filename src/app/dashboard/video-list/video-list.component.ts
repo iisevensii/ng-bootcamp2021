@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Video } from '../dashboard.types';
 
 @Component({
@@ -12,11 +12,14 @@ export class VideoListComponent implements OnInit {
 
   @Input() videoList: Video[];
   selectedId: string;
+  @Output()
+  videoSelectedEvent = new EventEmitter<Video>();
 
   ngOnInit(): void {
   }
 
   videoSelected(video: Video): void {
     this.selectedId = video.id;
+    this.videoSelectedEvent.emit(video);
   }
 }
