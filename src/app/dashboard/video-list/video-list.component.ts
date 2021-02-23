@@ -10,9 +10,13 @@ export class VideoListComponent implements OnInit {
 
   constructor() { }
 
+  selectedVideo: string;
   videoList = myVideos;
 
   ngOnInit(): void {
   }
 
+  videoSelected(video): void {
+    this.selectedVideo = video.id;
+  }
 }
