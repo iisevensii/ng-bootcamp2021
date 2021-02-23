@@ -1,1 +1,12 @@
-<p>video-list works!</p>
+<div class="container">
+  <ul>
+    <li *ngFor="let video of videoList">
+      <div class="card">
+        <div class="card-content">
+          <p>Title: {{ video.title }}</p>
+          <p>Author: {{ video.author }}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
