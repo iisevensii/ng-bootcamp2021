@@ -1,7 +1,7 @@
 <div class="container">
   <ul>
     <li *ngFor="let video of videoList">
-      <div class="card" [class.highlighted]="selectedVideo === video.id" (click)="videoSelected(video)">
+      <div class="card" [class.highlighted]="selectedVideo === video" (click)="videoSelected(video)">
         <div class="card-content">
           <p>Title: {{ video.title }}</p>
           <p>Author: {{ video.author }}</p>
