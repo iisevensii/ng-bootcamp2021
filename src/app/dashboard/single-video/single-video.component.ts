@@ -11,7 +11,7 @@ export class SingleVideoComponent implements OnInit {
   constructor() { }
 
   @Input() video: Video;
-  @Input() selectedId: string;
+  @Input() selected: boolean;
 
   ngOnInit(): void {
   }
