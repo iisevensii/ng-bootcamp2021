@@ -56,4 +56,4 @@ when using the async pipe you don't have to worry about unsubscribing since this
 
 Async pipe is only usefull when the only target is the DOM/Frontent, if it is to be consumed in the component and maybe passed somewhere else it might make more sense to manage the subscription manually.
 
-when generating a service using the Angular CLI you can use a prefix just like we did when adding a component to a specific module (e.g. ng g component {moduleName}/{componentName}) similarly you can do `ng g service {folderName}/{serviceName}
+when generating a service using the Angular CLI you can use a prefix just like we did when adding a component to a specific module (e.g. ng g component {moduleName}/{componentName}) similarly you can do `ng g service {folderName}/{serviceName}`
