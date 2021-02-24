@@ -6,7 +6,9 @@ import { Video } from './dashboard.types';
 
 const apiUrl = 'https://api.angularbootcamp.com';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class DashboardService {
   videoList: Observable<Video[]>;
 
