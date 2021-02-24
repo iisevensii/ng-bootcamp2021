@@ -10,8 +10,8 @@ export class VideoListComponent implements OnInit {
 
   constructor() { }
 
-  @Input() videoList: Video[];
-  selectedId: string;
+  @Input() videoList: Video[] | undefined;
+  selectedId: string | undefined;
   @Output()
   videoSelectedEvent = new EventEmitter<Video>();
 

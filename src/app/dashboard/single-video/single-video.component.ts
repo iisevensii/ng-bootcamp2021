@@ -10,8 +10,8 @@ export class SingleVideoComponent implements OnInit {
 
   constructor() { }
 
-  @Input() video: Video;
-  @Input() selected: boolean;
+  @Input() video: Video | undefined;
+  @Input() selected: boolean | undefined;
 
   ngOnInit(): void {
   }

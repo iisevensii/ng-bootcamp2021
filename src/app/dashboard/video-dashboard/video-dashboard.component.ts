@@ -12,8 +12,8 @@ export class VideoDashboardComponent implements OnInit {
 
   constructor(private dashboardService: DashboardService) { }
 
-  videoList: Observable<Video[]>;
-  selectedVideo: Video;
+  videoList: Observable<Video[]> | undefined;
+  selectedVideo: Video | undefined;
 
   ngOnInit(): void {
     this.videoList = this.dashboardService.videoList;
