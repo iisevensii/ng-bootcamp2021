@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {default as myVideos} from '../videoManagerData.json';
 import { Video } from '../dashboard.types';
+import { DashboardService } from '../dashboard.service';
 
 @Component({
   selector: 'app-video-dashboard',
@@ -9,12 +9,16 @@ import { Video } from '../dashboard.types';
 })
 export class VideoDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dashboardService: DashboardService) { }
 
-  videoList: Video[] = myVideos;
+  videoList: Video[];
   selectedVideo: Video;
 
   ngOnInit(): void {
+    this.dashboardService.videoList
+      .subscribe(resp => {
+        this.videoList = resp;
+      });
   }
 
   setSelectedVideo(video: Video): void {
