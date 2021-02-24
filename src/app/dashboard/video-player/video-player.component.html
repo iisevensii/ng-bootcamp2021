@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" *ngIf="video">
   <div class="card">
     <div class="card-content">
-      Video Title: {{ video.title }}
+      Video Title: {{ video?.title }}
     </div>
   </div>
 </div>
