@@ -7,7 +7,6 @@ import { StatFiltersComponent } from './stat-filters/stat-filters.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SingleVideoComponent } from './single-video/single-video.component';
 import { DashboardService } from './dashboard.service';
-import { HttpClientModule } from '@angular/common/http';
 
 
 const dashboardRoutes: Routes = [
@@ -18,8 +17,7 @@ const dashboardRoutes: Routes = [
   declarations: [VideoDashboardComponent, VideoListComponent, VideoPlayerComponent, StatFiltersComponent, SingleVideoComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(dashboardRoutes),
-    HttpClientModule
+    RouterModule.forChild(dashboardRoutes)
   ],
   providers: [DashboardService]
 })
