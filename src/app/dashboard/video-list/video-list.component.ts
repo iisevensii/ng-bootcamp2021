@@ -10,10 +10,10 @@ export class VideoListComponent implements OnInit {
 
   constructor() { }
 
-  @Input() videoList: Video[] | undefined;
   selectedId: string | undefined;
-  @Output()
-  videoSelectedEvent = new EventEmitter<Video>();
+
+  @Input() videoList: Video[] | undefined;
+  @Output() videoSelectedEvent = new EventEmitter<Video>();
 
   ngOnInit(): void {
   }
