@@ -49,3 +49,9 @@ json pipe shows contents of object instead of just `Object object`
 private access modifier when used on an obect injected in a component constructor is the same as creating a private field and allows the object to be used outside of the constructor.
 
 lifecycle hook methods are called even if they aren't implemented!
+
+research 'providedIn' of Injectable decorator. This allows you to skip listing the injectable (maybe a service) in the module's 'providers' array.
+
+when using the async pipe you don't have to worry about unsubscribing since this will happen automatically as soon as the element consuming the observable is destroyed or removed from the DOM
+
+Async pipe is only usefull when the only target is the DOM/Frontent, if it is to be consumed in the component and maybe passed somewhere else it might make more sense to manage the subscription manually.
