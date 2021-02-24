@@ -73,3 +73,11 @@ e.g.
 >
 	Prompt
 </div>
+
+input, select, textarea (at least) can be bound to a formControlName
+
+[class.invalid]="details.get('phoneNumber')?.invalid" ???
+
+radio inputs are grouped by name 
+
+research ngOnSubmit (button type="submit")
