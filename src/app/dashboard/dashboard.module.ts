@@ -7,6 +7,7 @@ import { StatFiltersComponent } from './stat-filters/stat-filters.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SingleVideoComponent } from './single-video/single-video.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { VideoContainerComponent } from './video-container/video-container.component';
 
 
 const dashboardRoutes: Routes = [
@@ -14,7 +15,7 @@ const dashboardRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [VideoDashboardComponent, VideoListComponent, VideoPlayerComponent, StatFiltersComponent, SingleVideoComponent],
+  declarations: [VideoDashboardComponent, VideoListComponent, VideoPlayerComponent, StatFiltersComponent, SingleVideoComponent, VideoContainerComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(dashboardRoutes),
