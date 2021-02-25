@@ -1,7 +1,7 @@
 <div class="container">
   <div class="card">
     <div class="card-content" *ngIf="video">
-      Video Title: {{ video?.title}}
+      Video Title: {{ (video | async)?.title}}
     </div>
     <div class="card-content" *ngIf="!video">
       Please select a video from the list on the left

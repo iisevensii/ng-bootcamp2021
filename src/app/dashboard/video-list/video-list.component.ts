@@ -21,7 +21,7 @@ export class VideoListComponent implements OnInit {
 
   videoSelected(video: Video): void {
     this.selectedId = video.id;
-    this.router.navigate(['dashboard'], { queryParams: {video: `${ video.id }`}});
+    // this.router.navigate(['dashboard'], { queryParams: {video: `${ video.id }`}});
     this.videoSelectedEvent.emit(video);
   }
 }

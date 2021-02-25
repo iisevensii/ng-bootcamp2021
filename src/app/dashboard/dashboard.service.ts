@@ -24,6 +24,11 @@ export class DashboardService {
     return this.http.get<Video[]>(apiUrl + '/videos')
       .pipe(map(resp => uppercaseAuthor(resp)));
   }
+
+  getById(id: string): Observable<Video> {
+    return this.http.get<Video>(apiUrl + '/videos/' + id)
+      .pipe(map(resp => resp));
+  }
 }
 
 function uppercaseAuthor(list: Video[]): Video[] {
