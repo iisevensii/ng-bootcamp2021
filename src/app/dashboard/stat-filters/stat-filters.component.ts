@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DashboardService } from '../dashboard.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-stat-filters',
@@ -8,12 +10,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class StatFiltersComponent implements OnInit {
   filterFormGroup: FormGroup;
+  private filterSub: Subscription;
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, dashboardService: DashboardService) {
     this.filterFormGroup = fb.group({
       title: ['', Validators.required],
       author: ['', Validators.required]
     });
+
+    this.filterSub = this.filterFormGroup.valueChanges.subscribe(
+      filterCriteria => dashboardService.filter.next(filterCriteria)
+    );
   }
 
   ngOnInit(): void {

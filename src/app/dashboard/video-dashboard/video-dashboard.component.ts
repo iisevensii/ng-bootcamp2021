@@ -10,13 +10,14 @@ import { Observable } from 'rxjs';
 })
 export class VideoDashboardComponent implements OnInit {
 
-  constructor(private dashboardService: DashboardService) { }
+  constructor(private dashboardService: DashboardService) {
+    this.videoList = dashboardService.filteredVideos;
+  }
 
   videoList: Observable<Video[]> | undefined;
   selectedVideo: Video | undefined;
 
   ngOnInit(): void {
-    this.videoList = this.dashboardService.videoList;
   }
 
   setSelectedVideo(video: Video): void {

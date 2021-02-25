@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { Video } from './dashboard.types';
+import { map, startWith } from 'rxjs/operators';
+import { combineLatest, Observable, Subject } from 'rxjs';
+import { FilterCriteria, Video } from './dashboard.types';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 const apiUrl = 'https://api.angularbootcamp.com';
@@ -11,18 +11,33 @@ const apiUrl = 'https://api.angularbootcamp.com';
   providedIn: 'root'
 })
 export class DashboardService {
-  statFiltersForm: FormGroup;
-  videoList: Observable<Video[]>;
+  filteredVideos: Observable<Video[]>;
+  filter: Subject<any> = new Subject();
 
   constructor(private http: HttpClient, formBuilder: FormBuilder) {
-    // Load Videos from API
-    this.videoList = http.get<Video[]>(apiUrl + '/videos')
-      .pipe(map(resp => resp));
-
-    // Validation rules for stat filters component
-    this.statFiltersForm = formBuilder.group({
-      title: ['', Validators.required],
-      author: ['', Validators.required]
-    });
+    const filter = this.filter.pipe(startWith({title: '', author: ''}));
+    this.filteredVideos = combineLatest([this.getVideos(), filter])
+      .pipe(map(([list, criteria]) => filterVideos(list, criteria)));
   }
+
+  getVideos(): Observable<Video[]> {
+    return this.http.get<Video[]>(apiUrl + '/videos')
+      .pipe(map(resp => uppercaseAuthor(resp)));
+  }
+}
+
+function uppercaseAuthor(list: Video[]): Video[] {
+  const newList = list.map(video => {
+    const newVideo = { ...video, author: video.author.toUpperCase() };
+    return newVideo;
+  });
+
+  return newList;
+}
+
+function filterVideos(list: Video[], criteria: FilterCriteria): Video[] {
+  return list.filter(video => {
+    return !criteria.title
+      || video.title.toUpperCase().includes(criteria.title.toUpperCase());
+  });
 }

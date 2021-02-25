@@ -10,3 +10,8 @@ export interface ViewDetail {
   region: string;
   date: string;
 }
+
+export interface FilterCriteria {
+  title?: string;
+  author?: string;
+}
