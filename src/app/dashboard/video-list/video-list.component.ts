@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Video } from '../dashboard.types';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-video-list',
@@ -8,7 +9,7 @@ import { Video } from '../dashboard.types';
 })
 export class VideoListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   selectedId: string | undefined;
 
@@ -20,6 +21,7 @@ export class VideoListComponent implements OnInit {
 
   videoSelected(video: Video): void {
     this.selectedId = video.id;
+    this.router.navigate(['dashboard'], { queryParams: {video: `${ video.id }`}});
     this.videoSelectedEvent.emit(video);
   }
 }
