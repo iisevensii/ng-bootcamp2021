@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DashboardService } from '../dashboard.service';
 
 @Component({
   selector: 'app-stat-filters',
@@ -10,8 +9,11 @@ import { DashboardService } from '../dashboard.service';
 export class StatFiltersComponent implements OnInit {
   filterFormGroup: FormGroup;
 
-  constructor(fb: FormBuilder, dashboardService: DashboardService) {
-    this.filterFormGroup = dashboardService.statFiltersForm;
+  constructor(fb: FormBuilder) {
+    this.filterFormGroup = fb.group({
+      title: ['', Validators.required],
+      author: ['', Validators.required]
+    });
   }
 
   ngOnInit(): void {
