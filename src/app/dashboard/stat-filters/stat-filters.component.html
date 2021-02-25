@@ -1,1 +1,34 @@
-<p>stat-filters works!</p>
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">Video Info</div>
+    <form [formGroup]="filterFormGroup" (ngSubmit)="onFormSubmitted()">
+      <div>
+        <div>
+          <label for="title">Video Title</label>
+          <input id="title" type="text" formControlName="title" />
+          <div
+            *ngIf="
+                  filterFormGroup.get('title')?.hasError('required') &&
+                  filterFormGroup.get('title')?.touched
+                "
+          >
+            Enter title
+          </div>
+        </div>
+        <div>
+          <label for="author">Video Author</label>
+          <input id="author" type="text" formControlName="author" />
+          <div
+            *ngIf="
+                  filterFormGroup.get('author')?.hasError('required') &&
+                  filterFormGroup.get('author')?.touched
+                "
+          >
+            Enter author
+          </div>
+        </div>
+      </div>
+      <button class="btn" [disabled]="!filterFormGroup.valid">Save</button>
+    </form>
+  </div>
+</section>
