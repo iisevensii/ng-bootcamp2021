@@ -37,7 +37,7 @@ function uppercaseAuthor(list: Video[]): Video[] {
 
 function filterVideos(list: Video[], criteria: FilterCriteria): Video[] {
   return list.filter(video => {
-    return !criteria.title
-      || video.title.toUpperCase().includes(criteria.title.toUpperCase());
+    return (!criteria.title || (video.title.toUpperCase().includes(criteria.title.toUpperCase())))
+    && (!criteria.author || video.author.toUpperCase().includes(criteria.author.toUpperCase()));
   });
 }
