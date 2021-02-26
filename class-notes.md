@@ -81,3 +81,15 @@ input, select, textarea (at least) can be bound to a formControlName
 radio inputs are grouped by name 
 
 research ngOnSubmit (button type="submit")
+
+research flatMap (JS function, nothing to do with observables) to pull data that we care about
+
+research switchMap to fully understand it's behavior, also look at startsWith([])
+
+SwitchMap skit from ngConf
+https://www.youtube.com/watch?v=rUZ9CjcaCEw
+
+RxJS Decision Tree:
+https://rxjs-dev.firebaseapp.com/operator-decision-tree
+
+Research NGRX & Redux
