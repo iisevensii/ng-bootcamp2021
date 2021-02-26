@@ -1,7 +1,6 @@
-<div class="container">
-  <ul>
-    <li *ngFor="let video of videoList">
-      <app-single-video [video]="video" [selected]="video?.id === selectedId"></app-single-video>
-    </li>
-  </ul>
-</div>
+<div class="title">Videos</div>
+<ul>
+  <li *ngFor="let video of videoList">
+    <app-single-video [video]="video" [selected]="video?.id === selectedId"></app-single-video>
+  </li>
+</ul>

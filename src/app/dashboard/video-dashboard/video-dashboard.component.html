@@ -1,3 +1,15 @@
-<app-video-list [videoList]="videoList | async" (videoSelectedEvent)="setSelectedVideo($event)" ></app-video-list>
-<app-video-player [video]="selectedVideo"></app-video-player>
-<app-stat-filters></app-stat-filters>
+<div class="row">
+  <div class="col s12 m6 l3">
+    <app-video-list [videoList]="videoList | async" (videoSelectedEvent)="setSelectedVideo($event)" ></app-video-list>
+  </div>
+  <div class="col s12 m6 l6">
+    <div class="row">
+      <div class="col s12">
+        <app-video-player [video]="selectedVideo"></app-video-player>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m12 l3">
+    <app-stat-filters></app-stat-filters>
+  </div>
+</div>
