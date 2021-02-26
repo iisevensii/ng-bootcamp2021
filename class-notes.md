@@ -92,4 +92,6 @@ https://www.youtube.com/watch?v=rUZ9CjcaCEw
 RxJS Decision Tree:
 https://rxjs-dev.firebaseapp.com/operator-decision-tree
 
+Another good RxJS reference to visualize operators: https://rxmarbles.com/
+
 Research NGRX & Redux
