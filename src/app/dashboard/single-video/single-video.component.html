@@ -1,7 +1,7 @@
-<div class="card" [class.highlighted]="selected" [routerLink]="''" [queryParams]="{ id: video.id }">
+<div class="card" [class.highlighted]="selected" [routerLink]="''" [queryParams]="{ id: video?.id }">
   <div class="card-content">
     <img style="width: 100%"
-      src="http://img.youtube.com/vi/{{ video.id }}/0.jpg"
+      src="http://img.youtube.com/vi/{{ video?.id }}/0.jpg"
       alt="Top 5 Video"
     />
     <p>Title: {{ video?.title }}</p>
