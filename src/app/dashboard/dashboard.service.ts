@@ -21,8 +21,7 @@ export class DashboardService {
   }
 
   getVideos(): Observable<Video[]> {
-    return this.http.get<Video[]>(apiUrl + '/videos')
-      .pipe(map(resp => uppercaseAuthor(resp)));
+    return this.http.get<Video[]>(apiUrl + '/videos');
   }
 
   getById(id: string): Observable<Video> {
